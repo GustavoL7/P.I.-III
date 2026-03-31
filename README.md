@@ -13,7 +13,7 @@ Gestão de Ordens de Serviço (Tarefas): Criação de demandas com definição d
 Quadro Kanban: Visualização do status das manutenções em colunas "A fazer", "Em andamento" e "Concluído".
 Integração com Calendário: Monitoramento visual de prazos e entregas.
 🚀 Links do Projeto
-Gestão do Projeto (Trello/Jira): [INSIRA O LINK DO SEU TRELLO AQUI]
+Gestão do Projeto (Trello/Jira): [https://trello.com/invite/b/69cbdc6af5d985148279d392/ATTI0347bd4b56146b5840bf591286f4fadeB105DBCE/meu-quadro-do-trello]
 Protótipo Navegável (Stitch/Figma): [INSIRA O LINK DO SEU PROTÓTIPO AQUI]
 Vídeo de Demonstração: [INSIRA O LINK DO YOUTUBE/DRIVE AQUI]
 📈 Metodologia e Gerência
