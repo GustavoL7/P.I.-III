@@ -5,8 +5,9 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Middleware para JSON
+// Middleware para JSON e arquivos estáticos
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Caminho para o banco de dados
 const dbPath = path.resolve(__dirname, 'database.db');
@@ -45,13 +46,40 @@ function initializeDb() {
         data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP
       )
     `);
-    console.log('Tabelas inicializadas com sucesso.');
+
+    // Criação de usuário padrão para teste
+    db.run(`
+      INSERT OR IGNORE INTO usuarios (username, password) 
+      VALUES ('admin', 'admin123')
+    `);
+    console.log('Tabelas inicializadas e usuário padrão verificado.');
   });
 }
 
-// Endpoints básicos de exemplo
-app.get('/', (req, res) => {
-  res.send('Servidor Node.js com SQLite funcionando!');
+
+
+// Rota de Login
+app.post('/api/login', (req, res) => {
+  const { username, password } = req.body;
+  
+  if (!username || !password) {
+    return res.status(400).json({ success: false, message: 'Usuário e senha são obrigatórios.' });
+  }
+
+  const query = `SELECT * FROM usuarios WHERE username = ? AND password = ?`;
+  db.get(query, [username, password], (err, row) => {
+    if (err) return res.status(500).json({ success: false, error: err.message });
+    
+    if (row) {
+      res.json({ 
+        success: true, 
+        message: 'Login realizado com sucesso!',
+        user: { id: row.id, username: row.username }
+      });
+    } else {
+      res.status(401).json({ success: false, message: 'Usuário ou senha incorretos.' });
+    }
+  });
 });
 
 // Listar todos os usuários

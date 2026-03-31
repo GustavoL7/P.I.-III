@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-br">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>TechOps | Login Gerenciamento de Ordens de Serviço</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-surface": "#dce2f7",
+                        "on-tertiary-fixed": "#380d00",
+                        "secondary-fixed": "#d5e3fc",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "surface-container-low": "#141b2b",
+                        "on-tertiary": "#5b1b00",
+                        "on-surface": "#dce2f7",
+                        "on-primary-fixed-variant": "#173bab",
+                        "on-secondary": "#233144",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "surface-container": "#191f2f",
+                        "inverse-on-surface": "#293040",
+                        "primary-container": "#2142b1",
+                        "error": "#ffb4ab",
+                        "secondary-container": "#3c4a5e",
+                        "error-container": "#93000a",
+                        "surface-dim": "#0c1322",
+                        "inverse-primary": "#3755c3",
+                        "on-tertiary-container": "#ffaa8a",
+                        "primary-fixed": "#dde1ff",
+                        "tertiary": "#ffb59a",
+                        "surface": "#0c1322",
+                        "on-error-container": "#ffdad6",
+                        "outline": "#8d909e",
+                        "surface-bright": "#323949",
+                        "primary": "#b8c4ff",
+                        "on-background": "#dce2f7",
+                        "outline-variant": "#434653",
+                        "surface-tint": "#b8c4ff",
+                        "tertiary-container": "#8b2e01",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "on-secondary-container": "#abb9d1",
+                        "primary-fixed-dim": "#b8c4ff",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "tertiary-fixed": "#ffdbcf",
+                        "surface-container-high": "#232a3a",
+                        "on-error": "#690005",
+                        "on-primary-container": "#adbbff",
+                        "on-primary": "#002584",
+                        "surface-container-lowest": "#070e1d",
+                        "on-surface-variant": "#c3c6d5",
+                        "surface-variant": "#2e3545",
+                        "on-primary-fixed": "#001453",
+                        "surface-container-highest": "#2e3545",
+                        "on-tertiary-fixed-variant": "#802900",
+                        "secondary": "#b9c7df",
+                        "background": "#0c1322"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(50, 57, 73, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .cta-gradient {
+            background: linear-gradient(135deg, #b8c4ff 0%, #2142b1 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container min-h-screen flex items-center justify-center p-6 relative overflow-hidden">
+    <!-- Background Decor -->
+    <div class="absolute inset-0 z-0">
+        <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-tertiary/5 rounded-full blur-[100px]"></div>
+    </div>
+    <main class="w-full max-w-[1100px] grid lg:grid-cols-2 bg-surface-container-low rounded-xl shadow-[0_20px_40px_rgba(0,37,132,0.15)] overflow-hidden relative z-10">
+        <!-- Left Side: Branding & Info -->
+        <section class="hidden lg:flex flex-col justify-between p-12 bg-surface-container-lowest relative overflow-hidden">
+            <div class="relative z-10">
+                <div class="flex items-center gap-2 mb-12">
+                    <span class="material-symbols-outlined text-primary text-3xl" data-icon="terminal">terminal</span>
+                    <h1 class="font-headline font-extrabold text-2xl tracking-tight text-primary-fixed">TechOps</h1>
+                </div>
+                <div class="space-y-6">
+                    <h2 class="font-headline text-4xl font-bold leading-tight">Domine a Precisão das <span class="text-primary">Ordens de Serviço</span></h2>
+                    <p class="text-on-surface-variant text-lg max-w-sm leading-relaxed">
+                        Autorize o acesso ao portal de gerenciamento técnico mais robusto da indústria. Monitore tickets, rastreie ativos e otimize fluxos de trabalho.
+                    </p>
+                </div>
+            </div>
+            <div class="relative z-10 space-y-4">
+                <div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container border border-outline-variant/15">
+                    <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span>
+                    </div>
+                    <div>
+                        <p class="font-headline font-bold text-sm">Segurança Corporativa</p>
+                        <p class="text-xs text-on-surface-variant">SSO e autenticação multifator prontos.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Abstract Visual -->
+            <div class="absolute bottom-0 right-0 opacity-20 pointer-events-none">
+                <img class="w-full h-full object-cover grayscale brightness-50" alt="Abstract digital circuit board" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc_Ql98o_aYaxX-6QjLmmtE_mpxV4d_HMUiA1ZztOJ_arp34oZjwuhFxsNO8YihBoGFSildSeFIaRYrlva-ixTrUCOgYCQrodwubW9fYC9MDDnbadL_bLNv3c74_srY3t1SUTazVXJVUholaA853N8Yke6Q3Ts25TPcLS4HsnF7QVsyTVQFf8W_tEJu-JCFQm_Zy8NbDt-D2LWboSQnvDffunIztmRZ3s8C2bzVkhvdlZMaKN8jL61z-aGdmKkt1pfYfZKg_-YU5c"/>
+            </div>
+        </section>
+        <!-- Right Side: Login Form -->
+        <section class="flex flex-col items-center justify-center p-8 lg:p-16 bg-surface-container-low">
+            <div class="w-full max-w-md">
+                <header class="mb-10 lg:hidden text-center">
+                    <h1 class="font-headline font-extrabold text-2xl tracking-tight text-primary-fixed mb-2">TechOps</h1>
+                    <p class="text-on-surface-variant text-sm">Portal de Gerenciamento</p>
+                </header>
+                <div class="mb-8">
+                    <h3 class="font-headline text-2xl font-bold mb-2">Bem-vindo de volta</h3>
+                    <p class="text-on-surface-variant text-sm">Insira suas credenciais para gerenciar ordens de serviço.</p>
+                </div>
+                <form id="loginForm" class="space-y-6">
+                    <!-- Username Field -->
+                    <div class="space-y-2">
+                        <label class="font-label text-xs uppercase tracking-wider text-on-surface-variant font-medium" for="username">Usuário</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-lg" data-icon="person">person</span>
+                            <input class="w-full bg-surface-container border-none rounded-lg py-3.5 pl-12 pr-4 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary transition-all" id="username" name="username" placeholder="Seu usuário" type="text" required/>
+                        </div>
+                    </div>
+                    <!-- Password Field -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <label class="font-label text-xs uppercase tracking-wider text-on-surface-variant font-medium" for="password">Senha</label>
+                            <a class="text-xs text-primary font-semibold hover:underline decoration-primary/30 underline-offset-4" href="#">Esqueceu a senha?</a>
+                        </div>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-lg" data-icon="lock">lock</span>
+                            <input class="w-full bg-surface-container border-none rounded-lg py-3.5 pl-12 pr-4 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary transition-all" id="password" name="password" placeholder="••••••••" type="password" required/>
+                        </div>
+                    </div>
+                    <!-- Remember Me -->
+                    <div class="flex items-center gap-3">
+                        <input class="w-4 h-4 rounded-sm bg-surface-container border-none text-primary focus:ring-offset-surface focus:ring-primary" id="remember" name="remember" type="checkbox"/>
+                        <label class="text-sm text-on-surface-variant font-medium cursor-pointer" for="remember">Lembrar sessão</label>
+                    </div>
+                    <!-- Login Button -->
+                    <button class="cta-gradient w-full py-4 rounded-lg text-on-primary font-headline font-bold text-sm tracking-wide shadow-[0_4px_12px_rgba(184,196,255,0.2)] active:scale-[0.98] transition-all" type="submit">
+                        ENTRAR NO PAINEL
+                    </button>
+                    <div id="loginMessage" class="text-center text-sm font-medium hidden"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const loginMessage = document.getElementById('loginMessage');
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            loginMessage.classList.add('hidden');
+            loginMessage.textContent = '';
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                loginMessage.classList.remove('hidden');
+                if (data.success) {
+                    loginMessage.className = 'text-center text-sm font-medium text-green-400 mt-4';
+                    loginMessage.textContent = data.message;
+                    // Redirecionamento futuro: window.location.href = '/dashboard';
+                } else {
+                    loginMessage.className = 'text-center text-sm font-medium text-red-400 mt-4';
+                    loginMessage.textContent = data.message;
+                }
+            } catch (err) {
+                loginMessage.classList.remove('hidden');
+                loginMessage.className = 'text-center text-sm font-medium text-red-400 mt-4';
+                loginMessage.textContent = 'Erro ao conectar ao servidor.';
+            }
+        });
+    </script>
+</body>
+</html>
