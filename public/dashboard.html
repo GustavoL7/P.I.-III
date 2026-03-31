@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html class="dark" lang="pt-BR">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>TechOps - Gerenciamento de Ordens de Serviço</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>EA Tech - Gerenciamento de Ordens de Serviço</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -75,39 +79,55 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Manrope', sans-serif;
+        }
     </style>
 </head>
+
 <body class="bg-surface text-on-surface">
     <!-- SideNavBar -->
     <aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-[#141b2b] flex flex-col py-6 z-50">
         <div class="px-6 mb-10">
             <h1 class="text-xl font-bold text-[#dde1ff] tracking-tight">TechOps</h1>
-            <p class="text-[10px] uppercase tracking-wider text-on-surface-variant font-medium">Portal de Gerenciamento</p>
+            <p class="text-[10px] uppercase tracking-wider text-on-surface-variant font-medium">Portal de Gerenciamento
+            </p>
         </div>
         <nav class="flex-1 space-y-1">
-            <a class="flex items-center gap-3 px-4 py-3 text-[#dde1ff] font-bold relative after:absolute after:left-0 after:w-1 after:h-6 after:bg-[#b8c4ff] after:rounded-r-full after:shadow-[0_0_8px_#b8c4ff] bg-[#191f2f]" href="/dashboard">
+            <a class="flex items-center gap-3 px-4 py-3 text-[#dde1ff] font-bold relative after:absolute after:left-0 after:w-1 after:h-6 after:bg-[#b8c4ff] after:rounded-r-full after:shadow-[0_0_8px_#b8c4ff] bg-[#191f2f]"
+                href="/dashboard">
                 <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
                 <span class="text-sm font-label uppercase tracking-widest">Dashboard</span>
             </a>
-            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200" href="/orders">
+            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200"
+                href="/orders">
                 <span class="material-symbols-outlined" data-icon="assignment">assignment</span>
                 <span class="text-sm font-label uppercase tracking-widest">Ordens</span>
             </a>
-            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200" href="/kanban">
+            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200"
+                href="/kanban">
                 <span class="material-symbols-outlined" data-icon="view_kanban">view_kanban</span>
                 <span class="text-sm font-label uppercase tracking-widest">Kanban</span>
             </a>
-            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200" href="/calendar">
+            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200"
+                href="/calendar">
                 <span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
                 <span class="text-sm font-label uppercase tracking-widest">Calendário</span>
             </a>
-            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200" href="/settings">
+            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200"
+                href="/settings">
                 <span class="material-symbols-outlined" data-icon="settings">settings</span>
                 <span class="text-sm font-label uppercase tracking-widest">Configurações</span>
             </a>
-            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200 mt-auto" href="/" id="logoutBtn">
+            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200 mt-auto"
+                href="/" id="logoutBtn">
                 <span class="material-symbols-outlined" data-icon="logout">logout</span>
                 <span class="text-sm font-label uppercase tracking-widest">Sair</span>
             </a>
@@ -115,18 +135,23 @@
     </aside>
 
     <!-- TopNavBar -->
-    <header class="fixed top-0 right-0 left-64 h-16 z-40 bg-[#0c1322]/80 backdrop-blur-xl flex justify-between items-center px-8 w-full border-b border-outline-variant/10">
+    <header
+        class="fixed top-0 right-0 left-64 h-16 z-40 bg-[#0c1322]/80 backdrop-blur-xl flex justify-between items-center px-8 w-full border-b border-outline-variant/10">
         <div class="flex items-center gap-4">
             <span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
-            <input class="bg-transparent border-none text-on-surface placeholder:text-outline focus:ring-0 text-sm w-64" placeholder="Pesquisar ordens..." type="text"/>
+            <input class="bg-transparent border-none text-on-surface placeholder:text-outline focus:ring-0 text-sm w-64"
+                placeholder="Pesquisar ordens..." type="text" />
         </div>
         <div class="flex items-center gap-6">
             <div class="flex items-center gap-3">
-                <button class="material-symbols-outlined text-on-surface-variant hover:text-[#dde1ff] transition-colors" data-icon="notifications">notifications</button>
-                <button class="material-symbols-outlined text-on-surface-variant hover:text-[#dde1ff] transition-colors" data-icon="help_outline">help_outline</button>
+                <button class="material-symbols-outlined text-on-surface-variant hover:text-[#dde1ff] transition-colors"
+                    data-icon="notifications">notifications</button>
+                <button class="material-symbols-outlined text-on-surface-variant hover:text-[#dde1ff] transition-colors"
+                    data-icon="help_outline">help_outline</button>
                 <div class="flex items-center gap-3 ml-2">
                     <span id="userGreeting" class="text-sm font-semibold text-[#dde1ff]">Admin</span>
-                    <div class="h-8 w-8 rounded-full bg-primary-container/20 flex items-center justify-center border border-primary/20">
+                    <div
+                        class="h-8 w-8 rounded-full bg-primary-container/20 flex items-center justify-center border border-primary/20">
                         <span class="material-symbols-outlined text-primary text-sm">person</span>
                     </div>
                 </div>
@@ -137,8 +162,10 @@
     <!-- Main Content -->
     <main class="ml-64 mt-16 p-8 min-h-screen">
         <div class="mb-10">
-            <h2 class="text-3xl font-headline font-extrabold text-on-surface tracking-tight">Visão Geral Operacional</h2>
-            <p class="text-on-surface-variant font-body">Status em tempo real das ordens de serviço do centro técnico.</p>
+            <h2 class="text-3xl font-headline font-extrabold text-on-surface tracking-tight">Visão Geral Operacional
+            </h2>
+            <p class="text-on-surface-variant font-body">Status em tempo real das ordens de serviço do centro técnico.
+            </p>
         </div>
 
         <!-- Summary Cards -->
@@ -146,7 +173,8 @@
             <div class="bg-surface-container p-6 rounded-lg relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
                 <div class="flex justify-between items-start mb-4">
-                    <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Total de Serviços</span>
+                    <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Total de
+                        Serviços</span>
                     <span class="material-symbols-outlined text-primary" data-icon="bolt">bolt</span>
                 </div>
                 <div class="flex items-baseline gap-2">
@@ -193,13 +221,16 @@
             <div class="space-y-6">
                 <div class="bg-surface-container-highest rounded-lg p-6">
                     <div class="flex items-center gap-2 mb-6">
-                        <span class="material-symbols-outlined text-tertiary" data-icon="error_outline">error_outline</span>
-                        <h3 class="text-sm font-headline font-bold text-[#dde1ff] uppercase tracking-wider">Lembretes</h3>
+                        <span class="material-symbols-outlined text-tertiary"
+                            data-icon="error_outline">error_outline</span>
+                        <h3 class="text-sm font-headline font-bold text-[#dde1ff] uppercase tracking-wider">Lembretes
+                        </h3>
                     </div>
                     <div class="space-y-4">
                         <div class="p-4 bg-surface-container-low rounded-lg border-l-2 border-tertiary">
                             <p class="text-xs font-bold text-tertiary mb-1">DICA TechOps</p>
-                            <p class="text-sm font-medium text-on-surface">Use o Kanban para gerenciar o fluxo de reparo rapidamente.</p>
+                            <p class="text-sm font-medium text-on-surface">Use o Kanban para gerenciar o fluxo de reparo
+                                rapidamente.</p>
                         </div>
                     </div>
                 </div>
@@ -208,9 +239,12 @@
     </main>
 
     <!-- FAB -->
-    <a href="/orders" class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary-fixed rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform active:scale-95 group">
+    <a href="/orders"
+        class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary-fixed rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform active:scale-95 group">
         <span class="material-symbols-outlined" data-icon="add">add</span>
-        <span class="absolute right-16 bg-surface-bright px-3 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl">Nova Ordem</span>
+        <span
+            class="absolute right-16 bg-surface-bright px-3 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl">Nova
+            Ordem</span>
     </a>
 
     <script>
@@ -235,7 +269,7 @@
                 // Load Stats
                 const statsRes = await fetch('/api/dashboard/stats');
                 const stats = await statsRes.json();
-                
+
                 document.getElementById('stat-total').textContent = stats.total.toString().padStart(2, '0');
                 document.getElementById('stat-progress').textContent = stats.inProgress.toString().padStart(2, '0');
                 document.getElementById('stat-completed').textContent = stats.completed.toString().padStart(2, '0');
@@ -247,7 +281,7 @@
 
                 const list = document.getElementById('recentOrdersList');
                 list.innerHTML = '';
-                
+
                 if (recentTasks.length === 0) {
                     list.innerHTML = '<p class="text-on-surface-variant text-sm italic">Nenhuma ordem encontrada.</p>';
                     return;
@@ -263,7 +297,7 @@
                     const div = document.createElement('div');
                     div.className = 'flex items-center justify-between p-4 bg-surface-container-low rounded group hover:bg-surface-container-high transition-colors cursor-pointer';
                     div.onclick = () => window.location.href = '/orders';
-                    
+
                     div.innerHTML = `
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center">
@@ -287,6 +321,8 @@
         loadDashboardData();
     </script>
 </body>
+
 </html>
 </body>
+
 </html>
