@@ -87,19 +87,27 @@
             <p class="text-[10px] uppercase tracking-wider text-on-surface-variant font-medium">Portal de Gerenciamento</p>
         </div>
         <nav class="flex-1 space-y-1">
-            <a class="flex items-center gap-3 px-4 py-3 text-[#dde1ff] font-bold relative after:absolute after:left-0 after:w-1 after:h-6 after:bg-[#b8c4ff] after:rounded-r-full after:shadow-[0_0_8px_#b8c4ff] hover:bg-[#191f2f] transition-all duration-200" href="#">
+            <a class="flex items-center gap-3 px-4 py-3 text-[#dde1ff] font-bold relative after:absolute after:left-0 after:w-1 after:h-6 after:bg-[#b8c4ff] after:rounded-r-full after:shadow-[0_0_8px_#b8c4ff] bg-[#191f2f]" href="/dashboard">
                 <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
                 <span class="text-sm font-label uppercase tracking-widest">Dashboard</span>
             </a>
-            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200" href="#">
+            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200" href="/orders">
+                <span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+                <span class="text-sm font-label uppercase tracking-widest">Ordens</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200" href="/kanban">
                 <span class="material-symbols-outlined" data-icon="view_kanban">view_kanban</span>
                 <span class="text-sm font-label uppercase tracking-widest">Kanban</span>
             </a>
-            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200" href="#">
+            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200" href="/calendar">
                 <span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
                 <span class="text-sm font-label uppercase tracking-widest">Calendário</span>
             </a>
-            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200 mt-auto" href="/">
+            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200" href="/settings">
+                <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                <span class="text-sm font-label uppercase tracking-widest">Configurações</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-[#c3c6d5] opacity-70 hover:bg-[#191f2f] hover:opacity-100 transition-all duration-200 mt-auto" href="/" id="logoutBtn">
                 <span class="material-symbols-outlined" data-icon="logout">logout</span>
                 <span class="text-sm font-label uppercase tracking-widest">Sair</span>
             </a>
@@ -138,33 +146,33 @@
             <div class="bg-surface-container p-6 rounded-lg relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
                 <div class="flex justify-between items-start mb-4">
-                    <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Serviços Hoje</span>
+                    <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Total de Serviços</span>
                     <span class="material-symbols-outlined text-primary" data-icon="bolt">bolt</span>
                 </div>
                 <div class="flex items-baseline gap-2">
-                    <span class="text-4xl font-headline font-bold text-on-surface">24</span>
-                    <span class="text-xs text-primary font-medium">+3 desde 08:00</span>
+                    <span id="stat-total" class="text-4xl font-headline font-bold text-on-surface">--</span>
+                    <span class="text-xs text-primary font-medium">No Banco</span>
                 </div>
             </div>
             <div class="bg-surface-container p-6 rounded-lg relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-1 h-full bg-tertiary"></div>
                 <div class="flex justify-between items-start mb-4">
-                    <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Aguardando Peças</span>
-                    <span class="material-symbols-outlined text-tertiary" data-icon="inventory_2">inventory_2</span>
+                    <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Em Reparo</span>
+                    <span class="material-symbols-outlined text-tertiary" data-icon="build">build</span>
                 </div>
                 <div class="flex items-baseline gap-2">
-                    <span class="text-4xl font-headline font-bold text-on-surface">12</span>
-                    <span class="text-xs text-tertiary font-medium">Ação Necessária</span>
+                    <span id="stat-progress" class="text-4xl font-headline font-bold text-on-surface">--</span>
+                    <span class="text-xs text-tertiary font-medium">Bancada</span>
                 </div>
             </div>
             <div class="bg-surface-container p-6 rounded-lg relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
                 <div class="flex justify-between items-start mb-4">
-                    <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Prontos</span>
+                    <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Concluídos</span>
                     <span class="material-symbols-outlined text-secondary" data-icon="verified">verified</span>
                 </div>
                 <div class="flex items-baseline gap-2">
-                    <span class="text-4xl font-headline font-bold text-on-surface">09</span>
+                    <span id="stat-completed" class="text-4xl font-headline font-bold text-on-surface">--</span>
                     <span class="text-xs text-secondary font-medium">Para Entrega</span>
                 </div>
             </div>
@@ -176,19 +184,7 @@
                 <div class="bg-surface-container rounded-lg p-6">
                     <h3 class="text-lg font-headline font-bold text-[#dde1ff] mb-6">Ordens Recentes</h3>
                     <div id="recentOrdersList" class="space-y-4">
-                        <!-- Content will be dynamic later -->
-                        <div class="flex items-center justify-between p-4 bg-surface-container-low rounded group hover:bg-surface-container-high transition-colors">
-                            <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center">
-                                    <span class="material-symbols-outlined text-outline" data-icon="laptop_mac">laptop_mac</span>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-on-surface">MacBook Pro - OS #8842</p>
-                                    <p class="text-xs text-on-surface-variant">Cliente: Ana Júlia • Entrada: 2h atrás</p>
-                                </div>
-                            </div>
-                            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-primary/10 text-primary">Em Reparo</span>
-                        </div>
+                        <p class="text-on-surface-variant text-sm italic">Carregando...</p>
                     </div>
                 </div>
             </div>
@@ -198,12 +194,12 @@
                 <div class="bg-surface-container-highest rounded-lg p-6">
                     <div class="flex items-center gap-2 mb-6">
                         <span class="material-symbols-outlined text-tertiary" data-icon="error_outline">error_outline</span>
-                        <h3 class="text-sm font-headline font-bold text-[#dde1ff] uppercase tracking-wider">Alertas Prioritários</h3>
+                        <h3 class="text-sm font-headline font-bold text-[#dde1ff] uppercase tracking-wider">Lembretes</h3>
                     </div>
                     <div class="space-y-4">
                         <div class="p-4 bg-surface-container-low rounded-lg border-l-2 border-tertiary">
-                            <p class="text-xs font-bold text-tertiary mb-1">SLO EXPIRANDO</p>
-                            <p class="text-sm font-medium text-on-surface">Servidor Dell necessita atenção.</p>
+                            <p class="text-xs font-bold text-tertiary mb-1">DICA TechOps</p>
+                            <p class="text-sm font-medium text-on-surface">Use o Kanban para gerenciar o fluxo de reparo rapidamente.</p>
                         </div>
                     </div>
                 </div>
@@ -212,15 +208,85 @@
     </main>
 
     <!-- FAB -->
-    <button class="fixed bottom-8 right-8 w-14 h-14 bg-primary-container text-on-primary-container rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform active:scale-95 group">
+    <a href="/orders" class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary-fixed rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform active:scale-95 group">
         <span class="material-symbols-outlined" data-icon="add">add</span>
         <span class="absolute right-16 bg-surface-bright px-3 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl">Nova Ordem</span>
-    </button>
+    </a>
 
     <script>
-        // Basic init - could load user info from localStorage if we saved it in login
+        // Auth check
+        if (!localStorage.getItem('techops_user')) {
+            window.location.href = '/';
+        }
+
         const username = localStorage.getItem('techops_user') || 'Admin';
         document.getElementById('userGreeting').textContent = username;
+
+        // Logout logic
+        document.getElementById('logoutBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('techops_user');
+            localStorage.removeItem('techops_user_id');
+            window.location.href = '/';
+        });
+
+        async function loadDashboardData() {
+            try {
+                // Load Stats
+                const statsRes = await fetch('/api/dashboard/stats');
+                const stats = await statsRes.json();
+                
+                document.getElementById('stat-total').textContent = stats.total.toString().padStart(2, '0');
+                document.getElementById('stat-progress').textContent = stats.inProgress.toString().padStart(2, '0');
+                document.getElementById('stat-completed').textContent = stats.completed.toString().padStart(2, '0');
+
+                // Load Recent Orders
+                const tasksRes = await fetch('/api/tarefas');
+                const tasks = await tasksRes.json();
+                const recentTasks = tasks.slice(0, 5);
+
+                const list = document.getElementById('recentOrdersList');
+                list.innerHTML = '';
+                
+                if (recentTasks.length === 0) {
+                    list.innerHTML = '<p class="text-on-surface-variant text-sm italic">Nenhuma ordem encontrada.</p>';
+                    return;
+                }
+
+                recentTasks.forEach(task => {
+                    const statusColors = {
+                        'A fazer': 'bg-outline/20 text-outline',
+                        'Em andamento': 'bg-primary/20 text-primary',
+                        'Concluído': 'bg-tertiary/20 text-tertiary'
+                    };
+
+                    const div = document.createElement('div');
+                    div.className = 'flex items-center justify-between p-4 bg-surface-container-low rounded group hover:bg-surface-container-high transition-colors cursor-pointer';
+                    div.onclick = () => window.location.href = '/orders';
+                    
+                    div.innerHTML = `
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center">
+                                <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="computer">computer</span>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-on-surface group-hover:text-[#dde1ff]">${task.equipamento}</p>
+                                <p class="text-xs text-on-surface-variant font-medium">Cliente: ${task.cliente}</p>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest ${statusColors[task.status] || 'bg-outline/20'}">${task.status}</span>
+                    `;
+                    list.appendChild(div);
+                });
+
+            } catch (err) {
+                console.error('Erro ao carregar dashboard:', err);
+            }
+        }
+
+        loadDashboardData();
     </script>
+</body>
+</html>
 </body>
 </html>

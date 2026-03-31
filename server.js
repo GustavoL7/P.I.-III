@@ -61,12 +61,15 @@ function initializeDb() {
           ['Beatriz Rocha', 'MacBook Pro M2', 'System Cleanup & Optimization', 'Em andamento', '2024-10-27'],
           ['Carlos Pereira', 'Razer Blade 15', 'GPU Replacement - Artifacting', 'A fazer', '2024-10-09'],
           ['Daniel Souza', 'ThinkPad X1 Carbon', 'OS Reinstallation', 'Concluído', '2024-11-02'],
-          ['Ana Júlia', 'MacBook Pro', 'Troca de Tela', 'Em andamento', '2024-04-15']
+          ['Ana Júlia', 'MacBook Pro', 'Troca de Tela', 'Em andamento', '2024-04-15'],
+          ['Roberto Silva', 'Dell Latitude 5420', 'Keyboard replacement', 'A fazer', '2024-05-10'],
+          ['Mariana Costa', 'HP Pavilion', 'Battery issue', 'Em andamento', '2024-05-02'],
+          ['Fernando Goes', 'ASUS Rog Strix', 'Water damage', 'Concluído', '2024-04-20']
         ];
         const stmt = db.prepare("INSERT INTO tarefas (cliente, equipamento, descricao, status, prazo) VALUES (?, ?, ?, ?, ?)");
         testTasks.forEach(task => stmt.run(task));
         stmt.finalize();
-        console.log('5 tarefas de teste adicionadas.');
+        console.log('8 tarefas de teste adicionadas.');
       }
     });
 
@@ -79,6 +82,26 @@ function initializeDb() {
 // Rota do Dashboard
 app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
+});
+
+// Rota das Ordens
+app.get('/orders', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'orders.html'));
+});
+
+// Rota do Kanban
+app.get('/kanban', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'kanban.html'));
+});
+
+// Rota do Calendário
+app.get('/calendar', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'calendar.html'));
+});
+
+// Rota de Configurações
+app.get('/settings', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'settings.html'));
 });
 
 // --- ROTAS DE API (USUÁRIOS) ---
@@ -115,11 +138,31 @@ app.get('/api/usuarios', (req, res) => {
   });
 });
 
+// Alterar senha do usuário
+app.put('/api/usuarios/:id/password', (req, res) => {
+  const { password } = req.body;
+  if (!password) return res.status(400).json({ error: 'Nova senha é obrigatória.' });
+
+  db.run('UPDATE usuarios SET password = ? WHERE id = ?', [password, req.params.id], function(err) {
+    if (err) return res.status(500).json({ error: err.message });
+    if (this.changes === 0) return res.status(404).json({ error: 'Usuário não encontrado.' });
+    res.json({ message: 'Senha atualizada com sucesso!' });
+  });
+});
+
 // --- ROTAS DE API (TAREFAS / ORDENS DE SERVIÇO) ---
 
 // Listar todas as tarefas
 app.get('/api/tarefas', (req, res) => {
   db.all('SELECT * FROM tarefas ORDER BY data_criacao DESC', [], (err, rows) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(rows);
+  });
+});
+
+// Filtrar tarefas por status
+app.get('/api/tarefas/status/:status', (req, res) => {
+  db.all('SELECT * FROM tarefas WHERE status = ? ORDER BY data_criacao DESC', [req.params.status], (err, rows) => {
     if (err) return res.status(500).json({ error: err.message });
     res.json(rows);
   });
