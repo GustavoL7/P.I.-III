@@ -58,6 +58,11 @@ function initializeDb() {
 
 
 
+// Rota do Dashboard
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
+});
+
 // Rota de Login
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;

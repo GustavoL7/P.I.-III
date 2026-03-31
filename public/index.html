@@ -193,7 +193,14 @@
                 if (data.success) {
                     loginMessage.className = 'text-center text-sm font-medium text-green-400 mt-4';
                     loginMessage.textContent = data.message;
-                    // Redirecionamento futuro: window.location.href = '/dashboard';
+                    
+                    // Salva o usuário para o dashboard
+                    localStorage.setItem('techops_user', data.user.username);
+                    
+                    // Redireciona após 1.5 segundos
+                    setTimeout(() => {
+                        window.location.href = '/dashboard';
+                    }, 1500);
                 } else {
                     loginMessage.className = 'text-center text-sm font-medium text-red-400 mt-4';
                     loginMessage.textContent = data.message;
