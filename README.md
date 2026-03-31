@@ -14,7 +14,7 @@ Quadro Kanban: Visualização do status das manutenções em colunas "A fazer", 
 Integração com Calendário: Monitoramento visual de prazos e entregas.
 🚀 Links do Projeto
 Gestão do Projeto (Trello/Jira): [https://trello.com/invite/b/69cbdc6af5d985148279d392/ATTI0347bd4b56146b5840bf591286f4fadeB105DBCE/meu-quadro-do-trello]
-Protótipo Navegável (Stitch/Figma): [INSIRA O LINK DO SEU PROTÓTIPO AQUI]
+Protótipo Navegável (Stitch/Figma): [https://stitch.withgoogle.com/projects/4873149405237055409]
 Vídeo de Demonstração: [INSIRA O LINK DO YOUTUBE/DRIVE AQUI]
 📈 Metodologia e Gerência
 O desenvolvimento seguiu boas práticas de Gerência de Projetos de Software, utilizando abordagens ágeis para organização de tarefas em ciclos curtos e acompanhamento visual do progresso.
