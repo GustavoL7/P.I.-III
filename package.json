@@ -1,0 +1,17 @@
+{
+  "name": "pi-iii",
+  "version": "1.0.0",
+  "description": "Sistema de Gerenciamento para Assistência Técnica",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Gustavo Lucas Novais Araujo Ayres",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7"
+  }
+}
